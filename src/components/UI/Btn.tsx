@@ -1,12 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './Btn.module.css';
 
 interface Props {
     text: string;
     className?: string;
+    to?: string;
 }
 
-export const Btn = ({text, className}: Props) => {
-    return <button className={`${styles.btn} ${className}`}>{text}</button>;
-}
+export const Btn = ({text, className, to}: Props) => (
+    to
+        ? <Link className={`${styles.link} ${className}`} to={to}>{text}</Link>
+        : <button className={`${styles.btn} ${className}`}>{text}</button>
+);

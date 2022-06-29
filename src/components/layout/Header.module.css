@@ -39,7 +39,9 @@ input::placeholder {
 }
 
 .button {
-    padding: 7px 22px;
+    font-size: 1.6rem;
     margin-left: 15px;
+    height: 35px;
+    padding: 7px 22px;
 }
 

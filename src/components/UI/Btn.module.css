@@ -5,12 +5,19 @@
     color: white;
     background: #D90429;
     border: none;
-    height: 35px;
-    font-size: 1.6rem;
     text-transform: uppercase;
-    transition-property: transform, box-shadow;
-    transition-duration: .2s;
+    transition-duration: .3s;
+    cursor: pointer;
 }
+
+.btn:hover {
+    background: #ef233c;
+}
+
 .btn:active {
-    transform: scale(1.1);
+    transform: scale(.9);
+}
+
+.link {
+
 }
