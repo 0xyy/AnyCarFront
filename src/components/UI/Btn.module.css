@@ -1,0 +1,16 @@
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: #D90429;
+    border: none;
+    height: 35px;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    transition-property: transform, box-shadow;
+    transition-duration: .2s;
+}
+.btn:active {
+    transform: scale(1.1);
+}

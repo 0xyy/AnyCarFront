@@ -1,0 +1,45 @@
+.headerBox {
+    background: #000;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1620px;
+    height: 85px;
+    color: #fff;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 500;
+}
+
+form {
+    display: flex;
+
+}
+
+input {
+    width: 280px;
+    padding: 5px;
+    font-size: 1.6rem;
+    border: none;
+}
+
+input:focus {
+    outline:none;
+}
+
+input::placeholder {
+    font-size: 1.5rem;
+    opacity: 80%;
+}
+
+.button {
+    padding: 7px 22px;
+    margin-left: 15px;
+}
+
