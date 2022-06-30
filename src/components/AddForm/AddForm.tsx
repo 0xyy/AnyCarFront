@@ -1,8 +1,11 @@
 import React from 'react';
 
+import styles from './AddForm.module.css';
+
 export const AddForm = () => {
     return (
-        <h1>Dodaj</h1>
-
+        <div className={styles.div}>
+            <h1>LOLOLLOLOLOL</h1>
+        </div>
     );
 };

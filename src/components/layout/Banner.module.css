@@ -26,9 +26,9 @@
     background: rgba(0,0,0,.5);
 }
 
-h1 {
+.title {
     font-weight: 500;
-    font-size: 4rem;
+    font-size: 4.7rem;
     z-index: 3;
     color: #fff;
 }
@@ -39,4 +39,11 @@ h1 {
     font-weight: 300;
     font-size: 2rem;
     z-index: 3;
+    text-decoration: none;
+}
+
+@media (max-width: 1630px) {
+    .bannerBox {
+       padding: 20px;
+    }
 }

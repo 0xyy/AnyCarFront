@@ -9,7 +9,7 @@ export const Banner = () => {
         <div className={styles.bannerBox} style={{backgroundImage: `url(${backgroundImg})`}}>
             <div className={styles.dimness}/>
             <div className={styles.banner}>
-                <h1>Znajdziesz tu każdy<br/>samochód którego szukasz.</h1>
+                <h1 className={styles.title}>Znajdziesz tu każdy<br/>samochód którego szukasz.</h1>
                 <Btn to="/add" className={styles.button} btnStyle text="Dodaj ogłoszenie"/>
             </div>
         </div>
