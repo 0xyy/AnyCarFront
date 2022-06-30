@@ -19,5 +19,12 @@
 }
 
 .link {
+    display: inline-block;
+    color: #D90429;
+    text-decoration: none;
+    transition: color .3s;
+}
 
+.link:hover {
+    color: #ef233c;
 }
