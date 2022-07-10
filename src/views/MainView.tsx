@@ -1,12 +1,12 @@
 import React from 'react';
-import { Header } from '../components/layout/Header';
-import { Banner } from '../components/layout/Banner';
-import { Filters } from '../components/layout/Filters';
+import { Banner } from '../components/layout/Banner/Banner';
+import { Filters } from '../components/layout/Filters/Filters';
+import { Cars } from '../components/layout/Cars/Cars';
 
 export const MainView = () => (
     <>
         <Banner/>
         <Filters/>
-        {/*<Cars/>*/}
+        <Cars/>
     </>
 );
