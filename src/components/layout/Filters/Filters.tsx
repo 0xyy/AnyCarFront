@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search } from '../Filters/Search';
+import { Search } from '../../Search/Search';
 
 import styles from './Filters.module.css';
 
