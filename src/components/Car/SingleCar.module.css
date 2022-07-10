@@ -1,0 +1,132 @@
+.singleCarBox {
+}
+
+.singleCar {
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto;
+    max-width: 1620px;
+}
+
+.goBack {
+    font-size: 2rem;
+}
+
+.section {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    height: 500px;
+}
+
+.imgBox {
+    width: 100%;
+}
+
+.imgBox img {
+    display: inline-block;
+    background: #D90429;
+    /*margin: 0 auto 0 150px;*/
+    width: 800px;
+    height: 100%;
+}
+
+.adName {
+    width: 900px;
+    word-break: break-all;
+}
+
+.adName h4 {
+    font-size: 2.5rem;
+}
+
+.adName p {
+    font-size: 1.5rem;
+}
+
+.adName h2 {
+    margin-top: 20px;
+    font-size: 3.9rem;
+    color: #D90429;
+    display: flex;
+    align-items: flex-end;
+}
+
+.adName h3 {
+    margin-top: 20px;
+    font-size: 3rem;
+}
+
+.adName sub {
+    font-size: 2.3rem;
+    padding-left: 5px;
+    padding-bottom: 7px;
+}
+
+.carInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.createdAt {
+    font-size: 1.4rem;
+    opacity: 70%;
+}
+
+.createdAt span {
+    padding-right: 15px;
+}
+
+.carInfo h3 {
+    margin-top: 22px;
+    font-size: 3rem;
+}
+
+.listInfo {
+    margin-top: 10px;
+    display: flex;
+}
+
+.listInfo .sectionOne, .listInfo .sectionTwo {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+.listInfo .sectionOne li , .listInfo .sectionTwo li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 5px;
+    width: 380px;
+    text-transform: none;
+    font-size: 2.2rem;
+}
+
+ul span {
+    opacity: 50%;
+}
+
+.sectionOne {
+    margin-right: 100px;
+}
+
+.sectionTwo {
+}
+
+@media (max-width: 1630px) {
+    .singleCarBox {
+        padding: 20px;
+    }
+
+    .section {
+        height: 500px;
+        flex-direction: column;
+    }
+
+    .imgBox {
+        height: 500px;
+    }
+}
