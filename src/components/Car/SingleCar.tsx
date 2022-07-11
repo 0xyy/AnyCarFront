@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Btn } from '../UI/Btn';
 import { CarEntity } from 'types';
+import { separateNumber } from '../../utils/separate-number';
 
 import styles from './SingleCar.module.css';
-import { separateNumber } from '../../utils/separate-number';
 
 export const SingleCar = () => {
     const {id} = useParams();
@@ -20,7 +20,10 @@ export const SingleCar = () => {
     }, []);
 
     if (car === null) {
-        return <h1>Wczytywanie oferty samochodowej...</h1>;
+        return <div className={styles.noCarFound}>
+            <h1>To my mamy takie auto?</h1>
+            <p>Przepraszamy, ale nie możemy znaleść takiej oferty samochodowej. <Btn to="/" text="Wróc na stronę główną"/></p>
+        </div>;
     }
 
     const {
@@ -41,7 +44,7 @@ export const SingleCar = () => {
     } = car;
 
     return (
-        <div className={styles.singleCarBox}>
+        <div>
             <div className={styles.singleCar}>
                 <div className={styles.goBack}>
                     <Btn to="/" text="Wróć na stronę główną"/>

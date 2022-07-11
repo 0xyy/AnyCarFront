@@ -22,7 +22,7 @@ export const Cars = () => {
     if (cars.length === 0) {
         return <div className={styles.noCars}>
             <h1>Tylko nie to?! Ktoś widział nasze samochody?!</h1>
-            <p>Aktualnie nie mamy żadnych ofert samochodowych. <Btn to="/add" text="Dodaj jąkąś furkę!"/></p>
+            <p>Aktualnie nie mamy żadnych ofert samochodowych o podanej frazie. <Btn to="/add" text="Dodaj jąkąś furkę!"/></p>
         </div>;
     }
 
