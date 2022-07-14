@@ -21,6 +21,7 @@
 }
 
 .imgBox img {
+    border: 2px solid #E5E5E5;
     display: inline-block;
     background: #D90429;
     width: 800px;

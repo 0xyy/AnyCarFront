@@ -1,6 +1,8 @@
 import React, { SyntheticEvent, useState } from 'react';
+import axios from 'axios';
 import { Btn } from '../UI/Btn';
 import { FuelTypes, GearboxTypes, BodyTypes } from 'types';
+import { apiUrl } from '../../config/api';
 
 import styles from './AddForm.module.css';
 
@@ -20,12 +22,14 @@ export const AddForm = () => {
         accidentFree: 1,
         description: '',
     });
-    const [createdCarId, setCreatedCarId] = useState('');
+    const [file, setFile] = useState<string>('');
+    const [fileName, setFileName] = useState<string>('');
+    const [createdCarId, setCreatedCarId] = useState<string>('');
 
     const handleFormSubmit = async (e: SyntheticEvent) => {
         e.preventDefault();
 
-        const res = await fetch('http://localhost:3001/api/car', {
+        const res = await fetch(`${apiUrl}/car`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -36,9 +40,18 @@ export const AddForm = () => {
             }),
         });
 
-        const data = await res.json();
+        const id = await res.json();
+        setCreatedCarId(id);
+        setFileName(id);
 
-        setCreatedCarId(data);
+        const formData = new FormData();
+        formData.append('file', file);
+
+        await axios.post(`${apiUrl}/image/upload/${id}`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
     };
 
     const updateForm = (key: string, value: any) => {
@@ -46,6 +59,11 @@ export const AddForm = () => {
             ...form,
             [key]: value,
         }));
+    };
+
+    const onFileChange = (e: any) => {
+        setFile(e.target.files[0]);
+        setFileName(e.target.files[0].name);
     };
 
     if (createdCarId) {
@@ -183,7 +201,8 @@ export const AddForm = () => {
                         <p>
                             <label>
                                 Rodzaj paliwa: <br/>
-                                <select name="fuel" value={form.fuel} onChange={e => updateForm('fuel', e.target.value)}>
+                                <select name="fuel" value={form.fuel}
+                                        onChange={e => updateForm('fuel', e.target.value)}>
                                     {
                                         Object.values(FuelTypes).map(fuel => (
                                             <option key={fuel} value={fuel}>{fuel}</option>
@@ -195,7 +214,8 @@ export const AddForm = () => {
                         <p>
                             <label>
                                 Skrzynia biegów: <br/>
-                                <select name="gearbox" value={form.gearbox} onChange={e => updateForm('gearbox', e.target.value)}>
+                                <select name="gearbox" value={form.gearbox}
+                                        onChange={e => updateForm('gearbox', e.target.value)}>
                                     {
                                         Object.values(GearboxTypes).map(gearbox => (
                                             <option key={gearbox} value={gearbox}>{gearbox}</option>
@@ -207,7 +227,8 @@ export const AddForm = () => {
                         <p>
                             <label>
                                 Typ nadwozia: <br/>
-                                <select name="bodyType" value={form.bodyType} onChange={e => updateForm('bodyType', e.target.value)}>
+                                <select name="bodyType" value={form.bodyType}
+                                        onChange={e => updateForm('bodyType', e.target.value)}>
                                     {
                                         Object.values(BodyTypes).map(bodyType => (
                                             <option key={bodyType} value={bodyType}>{bodyType}</option>
@@ -219,7 +240,8 @@ export const AddForm = () => {
                         <p>
                             <label>
                                 Bezwypadkowy: <br/>
-                                <select name="accidentFree" value={form.accidentFree} onChange={e => updateForm('accidentFree', +e.target.value)}>
+                                <select name="accidentFree" value={form.accidentFree}
+                                        onChange={e => updateForm('accidentFree', +e.target.value)}>
                                     <option value={1}>Tak</option>
                                     <option value={0}>Nie</option>
                                 </select>
@@ -240,6 +262,19 @@ export const AddForm = () => {
                             </label>
                         </p>
                         <Btn className={styles.button} text="Dodaj ogłoszenie"/>
+                    </div>
+                    <div>
+                        <p>
+                            <label className={styles.customFileUpload}>
+                                <input
+                                    name="file"
+                                    type="file"
+                                    required
+                                    onChange={onFileChange}
+                                />
+                                Wybierz zdjęcie samochodu: {fileName ? fileName : 'Nie wybrano pliku'}
+                            </label>
+                        </p>
                     </div>
                 </form>
                 <Btn className={styles.goBack} to="/" text="Wróć na stronę główną"/>
