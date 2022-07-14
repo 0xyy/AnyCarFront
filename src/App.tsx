@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { SearchContext } from './contexts/search.context';
+import { Header } from './components/layout/Header/Header';
+import { MainView } from './views/MainView';
+import { AddFormView } from './views/AddFormView';
+import { SingleCarView } from './views/SingleCarView';
+import { NotFoundView } from './views/NotFoundView';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export const App = () => {
+    const [search, setSearch] = useState('');
 
-export default App;
+    return (
+        <SearchContext.Provider value={{search, setSearch}}>
+            <Header/>
+            <Routes>
+                <Route path="/" element={<MainView/>}/>
+                <Route path="/add" element={<AddFormView/>}/>
+                <Route path="/car/:id" element={<SingleCarView/>}/>
+                <Route path="/*" element={<NotFoundView/>}/>
+            </Routes>
+        </SearchContext.Provider>
+    );
+};
+

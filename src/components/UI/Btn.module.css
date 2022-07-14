@@ -1,0 +1,30 @@
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: #D90429;
+    border: none;
+    text-transform: uppercase;
+    transition-duration: .3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #ef233c;
+}
+
+.btn:active {
+    transform: scale(.9);
+}
+
+.link {
+    display: inline-block;
+    color: #D90429;
+    text-decoration: none;
+    transition: color .3s;
+}
+
+.link:hover {
+    color: #ef233c;
+}

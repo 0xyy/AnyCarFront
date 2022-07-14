@@ -1,0 +1,33 @@
+.carsBox {
+    height: 1000px;
+}
+
+.cars {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px auto;
+    justify-content: space-between;
+    max-width: 1620px;
+}
+
+.noCars {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+}
+
+.noCars h1 {
+    font-size: 7rem;
+    margin-bottom: 12px;
+}
+
+.noCars p {
+    font-size: 2rem;
+}
+
+
+
