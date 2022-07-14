@@ -3,6 +3,7 @@ import { SearchContext } from '../../../contexts/search.context';
 import { Btn } from '../../UI/Btn';
 import { CarCard } from './CarCard';
 import { SimpleCarEntity } from 'types';
+import { apiUrl } from '../../../config/api';
 
 import styles from './Cars.module.css';
 
@@ -12,7 +13,7 @@ export const Cars = () => {
 
     useEffect(() => {
         (async () => {
-            const res = await fetch(`http://localhost:3001/api/car/search/${search}`);
+            const res = await fetch(`${apiUrl}/car/search/${search}`);
             const data: SimpleCarEntity[] = await res.json();
 
             setCars(data);

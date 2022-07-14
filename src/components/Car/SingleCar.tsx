@@ -3,19 +3,31 @@ import { useParams } from 'react-router-dom';
 import { Btn } from '../UI/Btn';
 import { CarEntity } from 'types';
 import { separateNumber } from '../../utils/separate-number';
+import { apiUrl } from '../../config/api';
 
 import styles from './SingleCar.module.css';
 
 export const SingleCar = () => {
-    const {id} = useParams();
+    const { id } = useParams();
     const [car, setCar] = useState<CarEntity | null>(null);
+    const [fileName, setFileName] = useState<string>('');
 
     useEffect(() => {
         (async () => {
-            const res = await fetch(`http://localhost:3001/api/car/${id}`);
+            const res = await fetch(`${apiUrl}/car/${id}`);
             const data: CarEntity = await res.json();
 
             setCar(data);
+        })();
+    }, []);
+
+
+    useEffect(() => {
+        (async () => {
+            const res = await fetch(`${apiUrl}/image/${id}`);
+            const data = await res.json();
+
+            setFileName(data);
         })();
     }, []);
 
@@ -52,8 +64,9 @@ export const SingleCar = () => {
                 <div className={styles.section}>
                     <div className={styles.imgBox}>
                         <img
-                            src=""
-                            alt={adName}/>
+                            src={`${apiUrl}/images/${fileName}`}
+                            alt={adName}
+                        />
                     </div>
                     <div className={styles.adName}>
                         <h4>{adName}</h4>
