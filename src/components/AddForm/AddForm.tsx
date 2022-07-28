@@ -6,6 +6,10 @@ import { apiUrl } from '../../config/api';
 
 import styles from './AddForm.module.css';
 
+interface Event<T = EventTarget> {
+    target: T;
+}
+
 export const AddForm = () => {
     const [form, setForm] = useState({
         adName: '',
@@ -22,7 +26,7 @@ export const AddForm = () => {
         accidentFree: 1,
         description: '',
     });
-    const [file, setFile] = useState<string>('');
+    const [file, setFile] = useState<<File | null>>(null);
     const [fileName, setFileName] = useState<string>('');
     const [createdCarId, setCreatedCarId] = useState<string>('');
 
@@ -61,7 +65,9 @@ export const AddForm = () => {
         }));
     };
 
-    const onFileChange = (e: any) => {
+    const onFileChange = (e: Event<HTMLInputElement>) => {
+        if (!e.target.files) return;
+        
         setFile(e.target.files[0]);
         setFileName(e.target.files[0].name);
     };
